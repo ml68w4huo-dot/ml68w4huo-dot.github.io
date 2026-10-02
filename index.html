@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL生成器</title>
+</head>
+<body>
+    <h1>URL生成器</h1>
+    <input type="url" id="urlInput" placeholder="https://example.com">
+    <a id="urlLink"></a>
+    <script>
+        const urlInput = document.getElementById("urlInput");
+        const link = document.getElementById("urlLink");
+
+        function updateLink() {
+            const url = urlInput.value.trim();
+            link.href = url;
+            link.textContent = url;
+            link.hidden = !url;
+        }
+
+        urlInput.addEventListener("input", updateLink);
+        updateLink();
+    </script>
+</body>
+</html>
