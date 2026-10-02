@@ -20,10 +20,19 @@
             link.href = url;
             link.textContent = url;
             link.hidden = !url;
+            frame.src = url || "about:blank";
         }
 
         urlInput.addEventListener("input", updateLink);
+
+        // main.jsから window.updateUrl(url) を呼び出すと表示先を更新できます。
+        window.updateUrl = function(url) {
+            urlInput.value = url || "";
+            updateLink();
+        };
+
         updateLink();
     </script>
+    <script src="main.js"></script>
 </body>
 </html>
